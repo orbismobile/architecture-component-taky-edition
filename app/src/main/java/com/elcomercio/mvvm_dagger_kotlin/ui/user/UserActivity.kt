@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.annotation.StringRes
 import android.support.design.widget.Snackbar
+import android.util.Log
 import com.elcomercio.mvvm_dagger_kotlin.R
 import com.elcomercio.mvvm_dagger_kotlin.repository.local.db.entity.UserEntity
 import com.elcomercio.mvvm_dagger_kotlin.utils.Status
@@ -43,7 +44,27 @@ class UserActivity : DaggerAppCompatActivity() {
         //Setting up Listeners
         fab.setOnClickListener { _ ->
             //Todo INSERT USER
+
+            setUpUserListtObserver()
         }
+    }
+
+    private fun setUpUserListtObserver(){
+        userViewModel.getUsers().observe(this, Observer {
+            when (it!!.status) {
+                Status.SUCCESS -> {
+                    Log.i("successsss","successss ${it.data!!.body!!.data!!.size}")
+
+                    //userAdapter.addAllUsers(it.data.body.)
+                }
+                Status.ERROR -> {
+                    showSnackBar(it.message!!)
+                }
+                Status.LOADING -> {
+                    showToast("Loading...")
+                }
+            }
+        })
     }
 
     private fun setUpUserListObserver() {

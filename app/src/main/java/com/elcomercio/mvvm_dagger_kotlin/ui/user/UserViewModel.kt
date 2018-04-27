@@ -7,6 +7,8 @@ import android.arch.lifecycle.ViewModel
 import android.support.annotation.VisibleForTesting
 import com.elcomercio.mvvm_dagger_kotlin.repository.UserRepository
 import com.elcomercio.mvvm_dagger_kotlin.repository.local.db.entity.UserEntity
+import com.elcomercio.mvvm_dagger_kotlin.repository.remote.api.ApiResponse
+import com.elcomercio.mvvm_dagger_kotlin.repository.remote.model.response.UserGetAllResponse
 import com.elcomercio.mvvm_dagger_kotlin.utils.AbsentLiveData
 import com.elcomercio.mvvm_dagger_kotlin.utils.Resource
 import javax.inject.Inject
@@ -52,4 +54,7 @@ constructor(private val userRepository: UserRepository) : ViewModel() {
             userIdMutableLiveData.value = userIdMutableLiveData.value
         }
     }
+
+    //EXTRA
+    fun getUsers(): LiveData<Resource<ApiResponse<UserGetAllResponse>>> = userRepository.getUsers()
 }

@@ -21,7 +21,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-            buildConfigField "String", "BASE_URL", "\"https://jsonplaceholder.typicode.com/\""
+            buildConfigField "String", "BASE_URL", "\"http://192.168.2.1:8123/\""
+            buildConfigField "String", "GET_ALL_USERS", "\"users\""
             buildConfigField "String", "USERS", "\"users/{userId}\""
         }
         debug {
@@ -29,7 +30,8 @@ android {
 
             applicationIdSuffix ".debug"
 
-            buildConfigField "String", "BASE_URL", "\"https://jsonplaceholder.typicode.com/\""
+            buildConfigField "String", "BASE_URL", "\"http://192.168.2.1:8123/\""
+            buildConfigField "String", "GET_ALL_USERS", "\"users\""
             buildConfigField "String", "USERS", "\"users/{userId}\""
         }
     }
