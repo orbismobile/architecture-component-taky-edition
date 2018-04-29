@@ -56,5 +56,8 @@ constructor(private val userRepository: UserRepository) : ViewModel() {
     }
 
     //EXTRA
-    fun getUsers(): LiveData<Resource<ApiResponse<UserGetAllResponse>>> = userRepository.getUsers()
+
+    fun getAllUsersLiveData() = userRepository.getAllUsersMutableLiveData
+
+    fun loadAllUsers() = userRepository.getUsers()
 }

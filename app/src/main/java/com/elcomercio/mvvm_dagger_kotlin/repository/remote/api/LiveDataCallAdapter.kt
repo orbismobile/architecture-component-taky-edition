@@ -1,6 +1,7 @@
 package com.elcomercio.mvvm_dagger_kotlin.repository.remote.api
 
 import android.arch.lifecycle.LiveData
+import android.util.Log
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.Callback

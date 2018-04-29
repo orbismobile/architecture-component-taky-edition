@@ -38,24 +38,30 @@ class UserActivity : DaggerAppCompatActivity() {
         })
         rvUser.adapter = userAdapter
 
-        setUpUserListObserver()
-        userViewModel.loadUser(1)
+        userViewModel.loadAllUsers()
+        settingUpAllUserObserver()
+
 
         //Setting up Listeners
         fab.setOnClickListener { _ ->
             //Todo INSERT USER
-
-            setUpUserListtObserver()
+            userViewModel.loadUser(1)
         }
+
+        srlRefresh.setOnRefreshListener {
+            if (srlRefresh.isRefreshing) srlRefresh.isRefreshing = false
+            userViewModel.loadAllUsers()
+        }
+
+        setUpUserListObserver()
     }
 
-    private fun setUpUserListtObserver(){
-        userViewModel.getUsers().observe(this, Observer {
+    private fun settingUpAllUserObserver(){
+        userViewModel.getAllUsersLiveData().observe(this, Observer {
             when (it!!.status) {
                 Status.SUCCESS -> {
-                    Log.i("successsss","successss ${it.data!!.body!!.data!!.size}")
-
-                    //userAdapter.addAllUsers(it.data.body.)
+                    Log.i("successsss","successss ${it}")
+                    userAdapter.addAllUsers(it.data!!)
                 }
                 Status.ERROR -> {
                     showSnackBar(it.message!!)

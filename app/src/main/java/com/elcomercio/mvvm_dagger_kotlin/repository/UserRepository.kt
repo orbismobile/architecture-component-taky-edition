@@ -1,8 +1,8 @@
 package com.elcomercio.mvvm_dagger_kotlin.repository
 
 import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.MutableLiveData
+import android.util.Log
 import com.elcomercio.mvvm_dagger_kotlin.repository.local.db.dao.UserDao
 import com.elcomercio.mvvm_dagger_kotlin.repository.local.db.entity.UserEntity
 import com.elcomercio.mvvm_dagger_kotlin.repository.remote.api.ApiResponse
@@ -40,43 +40,40 @@ constructor(private val appExecutors: AppExecutors,
             private val userDao: UserDao,
             private val sampleApi: SampleApi) {
 
-    private val getUsersMutableLiveData = MutableLiveData<Resource<ApiResponse<UserGetAllResponse>>>()
+    val getAllUsersMutableLiveData = MutableLiveData<Resource<List<UserEntity>>>()
 
-    fun getUsers(): MutableLiveData<Resource<ApiResponse<UserGetAllResponse>>> {
+    fun getUsers() {
 
         sampleApi.getUsers().enqueue(object : Callback<UserGetAllResponse> {
-            override fun onFailure(call: Call<UserGetAllResponse>?, t: Throwable) {
-                getUsersMutableLiveData.value = Resource.error(t.message!!, null)
+            override fun onFailure(call: Call<UserGetAllResponse>, t: Throwable) {
+                getAllUsersMutableLiveData.value = Resource.error(t.message!!, null)
             }
 
-            override fun onResponse(call: Call<UserGetAllResponse>, response: Response<UserGetAllResponse>) {
-                val apiResponse: ApiResponse<UserGetAllResponse> = ApiResponse(response)
+            override fun onResponse(call: Call<UserGetAllResponse>?, response: Response<UserGetAllResponse>) {
                 if (response.isSuccessful) {
-                    getUsersMutableLiveData.value = Resource.success(apiResponse)
+                    //MAPPING
+                    val filteredUsers = response.body()!!.data.map {
+                        UserEntity(it.id, it.firstName)
+                    }
+                    getAllUsersMutableLiveData.value = Resource.success(filteredUsers)
                 } else {
-                    getUsersMutableLiveData.value = Resource.error(apiResponse.errorMessage!!, null)
+                    getAllUsersMutableLiveData.value = Resource.error(response.body()!!.message, null)
                 }
             }
-
         })
-        /*val response: Response<UserGetAllResponse> = sampleApi.getUsers().execute()
-        val apiResponse: ApiResponse<UserGetAllResponse> = ApiResponse(response)
-        if (apiResponse.isSuccessful()) {
-            getUsersMutableLiveData.value = Resource.success(apiResponse)
-        } else {
-            getUsersMutableLiveData.value = Resource.error(apiResponse.errorMessage!!, null)
-        }*/
-        return getUsersMutableLiveData
     }
 
     fun getUsers(userId: Int): LiveData<Resource<UserEntity>> =
             object : NetworkBoundResource<UserEntity, UserGetResponse>(appExecutors) {
                 override fun saveCallResult(item: UserGetResponse) {
+
+
+                    Log.e("NUEVO ", "NUEVO $item")
                     //MAPPING
-                    val userEntity = UserEntity(item.data!!.id, item.data!!.firstName!!)
+                    //val userEntity = UserEntity(item.data!!.id, item.data!!.firstName!!)
 
                     //Save
-                    userDao.insertUser(userEntity)
+                    //userDao.insertUser(userEntity)
                 }
 
                 override fun shouldFetch(data: UserEntity?): Boolean =
