@@ -2,13 +2,10 @@ package com.elcomercio.mvvm_dagger_kotlin.repository.remote.api
 
 import android.arch.lifecycle.LiveData
 import com.elcomercio.mvvm_dagger_kotlin.BuildConfig
+import com.elcomercio.mvvm_dagger_kotlin.repository.remote.model.request.UserRequest
 import com.elcomercio.mvvm_dagger_kotlin.repository.remote.model.response.*
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.PUT
-import retrofit2.http.Path
-import retrofit2.http.DELETE
+import retrofit2.http.*
 
 /**
  * @author Carlos Vargas on 4/12/18.
@@ -18,19 +15,19 @@ import retrofit2.http.DELETE
  */
 interface SampleApi {
 
-    @GET(BuildConfig.GET_ALL_USERS)
+    @GET(BuildConfig.USERS)
     fun getUsers(): Call<UserGetAllResponse>
 
-    @GET(BuildConfig.USERS)
+    @GET(BuildConfig.USERS_ID)
     fun getUsers(@Path("userId") userId: Int): LiveData<ApiResponse<UserGetResponse>>
 
     @POST(BuildConfig.USERS)
-    fun postUsers(@Path("userId") userId: Int): LiveData<ApiResponse<UserPostResponse>>
+    fun postUsers(@Body userRequest: UserRequest): Call<UserPostResponse>
 
-    @PUT(BuildConfig.USERS)
+    @PUT(BuildConfig.USERS_ID)
     fun putUsers(@Path("userId") userId: Int): LiveData<ApiResponse<UserPutResponse>>
 
-    @DELETE(BuildConfig.USERS)
+    @DELETE(BuildConfig.USERS_ID)
     fun deleteUsers(@Path("userId") userId: Int): LiveData<ApiResponse<UserDeleteResponse>>
 
 }

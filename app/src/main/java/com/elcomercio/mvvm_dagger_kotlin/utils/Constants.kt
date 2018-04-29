@@ -14,3 +14,5 @@ const val VIEW_MODEL_NOT_FOUND = "ViewModel Not Found"
 
 //Network Response Constant
 const val ERROR_SERVICE_RESPONSE = "Error in service"
+
+const val TAG_USER_DIALOG_FRAGMENT = "TAG_USER_DIALOG_FRAGMENT"

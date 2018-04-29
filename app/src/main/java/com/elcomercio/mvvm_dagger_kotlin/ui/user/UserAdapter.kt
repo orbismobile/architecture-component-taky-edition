@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import com.elcomercio.mvvm_dagger_kotlin.R
 import com.elcomercio.mvvm_dagger_kotlin.repository.local.db.entity.UserEntity
-import com.elcomercio.mvvm_dagger_kotlin.repository.remote.model.response.UserGetAllResponse
 import com.elcomercio.mvvm_dagger_kotlin.utils.inflate
 import kotlinx.android.synthetic.main.item_user.view.*
 
@@ -40,7 +39,7 @@ class UserAdapter(private val listUserEntity: MutableList<UserEntity>,
 
         fun bind(userEntity: UserEntity) {
             this.userEntity = userEntity
-            itemView.tvName.text = "${this.userEntity.name} - ${this.userEntity.id}"
+            itemView.tvUserId.text = "${this.userEntity.name} - ${this.userEntity.id}"
         }
     }
 

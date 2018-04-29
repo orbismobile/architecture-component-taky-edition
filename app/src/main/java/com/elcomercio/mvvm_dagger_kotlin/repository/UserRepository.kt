@@ -7,8 +7,10 @@ import com.elcomercio.mvvm_dagger_kotlin.repository.local.db.dao.UserDao
 import com.elcomercio.mvvm_dagger_kotlin.repository.local.db.entity.UserEntity
 import com.elcomercio.mvvm_dagger_kotlin.repository.remote.api.ApiResponse
 import com.elcomercio.mvvm_dagger_kotlin.repository.remote.api.SampleApi
+import com.elcomercio.mvvm_dagger_kotlin.repository.remote.model.request.UserRequest
 import com.elcomercio.mvvm_dagger_kotlin.repository.remote.model.response.UserGetAllResponse
 import com.elcomercio.mvvm_dagger_kotlin.repository.remote.model.response.UserGetResponse
+import com.elcomercio.mvvm_dagger_kotlin.repository.remote.model.response.UserPostResponse
 import com.elcomercio.mvvm_dagger_kotlin.utils.AppExecutors
 import com.elcomercio.mvvm_dagger_kotlin.utils.Resource
 import retrofit2.Call
@@ -41,39 +43,18 @@ constructor(private val appExecutors: AppExecutors,
             private val sampleApi: SampleApi) {
 
     val getAllUsersMutableLiveData = MutableLiveData<Resource<List<UserEntity>>>()
-
-    fun getUsers() {
-
-        sampleApi.getUsers().enqueue(object : Callback<UserGetAllResponse> {
-            override fun onFailure(call: Call<UserGetAllResponse>, t: Throwable) {
-                getAllUsersMutableLiveData.value = Resource.error(t.message!!, null)
-            }
-
-            override fun onResponse(call: Call<UserGetAllResponse>?, response: Response<UserGetAllResponse>) {
-                if (response.isSuccessful) {
-                    //MAPPING
-                    val filteredUsers = response.body()!!.data.map {
-                        UserEntity(it.id, it.firstName)
-                    }
-                    getAllUsersMutableLiveData.value = Resource.success(filteredUsers)
-                } else {
-                    getAllUsersMutableLiveData.value = Resource.error(response.body()!!.message, null)
-                }
-            }
-        })
-    }
+    val saveUserOnServerMutableLiveData = MutableLiveData<Resource<UserPostResponse>>()
 
     fun getUsers(userId: Int): LiveData<Resource<UserEntity>> =
             object : NetworkBoundResource<UserEntity, UserGetResponse>(appExecutors) {
                 override fun saveCallResult(item: UserGetResponse) {
 
-
                     Log.e("NUEVO ", "NUEVO $item")
                     //MAPPING
-                    //val userEntity = UserEntity(item.data!!.id, item.data!!.firstName!!)
+                    val userEntity = UserEntity(item.data.id, item.data.firstName!!)
 
                     //Save
-                    //userDao.insertUser(userEntity)
+                    userDao.insertUser(userEntity)
                 }
 
                 override fun shouldFetch(data: UserEntity?): Boolean =
@@ -106,5 +87,44 @@ constructor(private val appExecutors: AppExecutors,
             userDao.deleteUser(userEntity)
         }
         appExecutors.diskIO.execute(deleteRunnable)
+    }
+
+    //Requesting just Remote Data Sourcing
+
+    fun getUsers() {
+
+        sampleApi.getUsers().enqueue(object : Callback<UserGetAllResponse> {
+            override fun onFailure(call: Call<UserGetAllResponse>, t: Throwable) {
+                getAllUsersMutableLiveData.value = Resource.error(t.message!!, null)
+            }
+
+            override fun onResponse(call: Call<UserGetAllResponse>?, response: Response<UserGetAllResponse>) {
+                if (response.isSuccessful) {
+                    //MAPPING
+                    val filteredUsers = response.body()!!.data.map {
+                        UserEntity(it.id, it.firstName)
+                    }
+                    getAllUsersMutableLiveData.value = Resource.success(filteredUsers)
+                } else {
+                    getAllUsersMutableLiveData.value = Resource.error(response.body()!!.message, null)
+                }
+            }
+        })
+    }
+
+    fun saveUserOnFromServer(userRequest: UserRequest) {
+        sampleApi.postUsers(userRequest).enqueue(object : Callback<UserPostResponse> {
+            override fun onFailure(call: Call<UserPostResponse>?, t: Throwable) {
+                saveUserOnServerMutableLiveData.value = Resource.error(t.message!!, null)
+            }
+
+            override fun onResponse(call: Call<UserPostResponse>, response: Response<UserPostResponse>) {
+                if (response.isSuccessful) {
+                    saveUserOnServerMutableLiveData.value = Resource.success(response.body())
+                } else {
+                    saveUserOnServerMutableLiveData.value = Resource.error(response.body()!!.message, null)
+                }
+            }
+        })
     }
 }

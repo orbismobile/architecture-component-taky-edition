@@ -73,7 +73,11 @@ abstract class NetworkBoundResource<R, T>(private val appExecutors: AppExecutors
                 if (apiResponse.isSuccessful()) {
                     appExecutors.diskIO.execute({
                         saveCallResult(processResponse(apiResponse)!!)
-                        appExecutors.mainThread.execute({ setValue(Resource.success(null)) })
+                        appExecutors.mainThread.execute({
+                            result.addSource(loadFromDb(), { newData ->
+                                setValue(Resource.success(newData))
+                            })
+                        })
                     })
                 } else {
                     result.addSource(dbSource

@@ -1,5 +1,6 @@
 package com.elcomercio.mvvm_dagger_kotlin.di.modules
 
+import com.elcomercio.mvvm_dagger_kotlin.ui.detail.DetailActivity
 import com.elcomercio.mvvm_dagger_kotlin.ui.user.UserActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -13,4 +14,6 @@ abstract class ActivityModule {
     @ContributesAndroidInjector
     abstract fun contributeUserActivity(): UserActivity
 
+    @ContributesAndroidInjector
+    abstract fun contributeDetailActivity(): DetailActivity
 }

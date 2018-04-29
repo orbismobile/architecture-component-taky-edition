@@ -22,8 +22,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             buildConfigField "String", "BASE_URL", "\"http://192.168.1.36:8123/\""
-            buildConfigField "String", "GET_ALL_USERS", "\"users\""
-            buildConfigField "String", "USERS", "\"users/{userId}\""
+            buildConfigField "String", "USERS", "\"users\""
+            buildConfigField "String", "USERS_ID", "\"users/{userId}\""
         }
         debug {
             minifyEnabled false
@@ -31,8 +31,8 @@ android {
             applicationIdSuffix ".debug"
 
             buildConfigField "String", "BASE_URL", "\"http://192.168.1.36:8123/\""
-            buildConfigField "String", "GET_ALL_USERS", "\"users\""
-            buildConfigField "String", "USERS", "\"users/{userId}\""
+            buildConfigField "String", "USERS", "\"users\""
+            buildConfigField "String", "USERS_ID", "\"users/{userId}\""
         }
     }
 }

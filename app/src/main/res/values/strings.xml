@@ -3,4 +3,8 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_user">AC MVVM</string>
     <string name="retry">Reintentar</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="first_name">FirstName</string>
+    <string name="last_name">LastName</string>
+    <string name="email">Email</string>
 </resources>
