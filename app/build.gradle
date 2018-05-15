@@ -21,7 +21,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-            buildConfigField "String", "BASE_URL", "\"http://192.168.1.36:8123/\""
+            buildConfigField "String", "BASE_URL", "\"http://$rootProject.ipAdress:$rootProject.port/\""
             buildConfigField "String", "USERS", "\"users\""
             buildConfigField "String", "USERS_ID", "\"users/{userId}\""
         }
@@ -30,7 +30,7 @@ android {
 
             applicationIdSuffix ".debug"
 
-            buildConfigField "String", "BASE_URL", "\"http://192.168.1.36:8123/\""
+            buildConfigField "String", "BASE_URL", "\"http://$rootProject.ipAdress:$rootProject.port/\""
             buildConfigField "String", "USERS", "\"users\""
             buildConfigField "String", "USERS_ID", "\"users/{userId}\""
         }
@@ -39,33 +39,40 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
+    //App's dependencies including test
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-    implementation 'com.android.support:design:27.1.1'
 
     //Architecture Components Libraries
-    implementation "android.arch.persistence.room:runtime:1.0.0"
-    kapt "android.arch.persistence.room:compiler:1.0.0"
-    testImplementation "android.arch.persistence.room:testing:1.0.0"
-    implementation "android.arch.lifecycle:runtime:1.1.1"
-    implementation "android.arch.lifecycle:extensions:1.1.1"
-    testImplementation "android.arch.core:core-testing:1.1.1"
-    kapt "android.arch.lifecycle:compiler:1.1.1"
+    testImplementation "android.arch.core:core-testing:$rootProject.archCoreVersion"
+    implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
+    testImplementation "android.arch.persistence.room:testing:$rootProject.roomVersion"
+    kapt "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+    implementation "android.arch.lifecycle:runtime:$rootProject.lifecycleVersion"
+    implementation "android.arch.lifecycle:extensions:$rootProject.lifecycleVersion"
+    kapt "android.arch.lifecycle:compiler:$rootProject.lifecycleVersion"
 
-    //REST Services Libraries
-    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
-    implementation 'com.squareup.retrofit2:retrofit-converters:2.3.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    // Square and OkHttp dependencies
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit-converters:$rootProject.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okHttpVersion"
 
     // Dagger dependencies
-    implementation 'com.google.dagger:dagger:2.15'
-    implementation 'com.google.dagger:dagger-android-support:2.15'
-    kapt 'com.google.dagger:dagger-android-processor:2.15'
-    kapt 'com.google.dagger:dagger-compiler:2.15'
+    implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.ext.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
 
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+
+    // Dependencies for Android unit tests
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    //Espresso UI Testing
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
 }
