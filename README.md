@@ -1,4 +1,4 @@
-<h1 align="center">ARCHITECTURE COMPONENTS MVVM PROJECT TAKY EDITION v.1</h1>
+<h1 align="center">ARCHITECTURE COMPONENTS PROJECT TAKY EDITION V.1</h1>
 <h2 align="center">POWERED BY ORBIS MOBILE TEAM </h2>
 
 <p align="center">
