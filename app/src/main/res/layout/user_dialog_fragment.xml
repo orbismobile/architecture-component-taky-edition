@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
     tools:layout_editor_absoluteY="81dp">
 
     <EditText
@@ -13,6 +14,7 @@
         android:ems="10"
         android:hint="@string/first_name"
         android:inputType="textPersonName"
+        android:maxLength="20"
         app:layout_constraintBottom_toTopOf="@+id/etLastName"
         app:layout_constraintEnd_toEndOf="@+id/etLastName"
         app:layout_constraintStart_toStartOf="@+id/etLastName"
@@ -25,6 +27,7 @@
         android:ems="10"
         android:hint="@string/last_name"
         android:inputType="textPersonName"
+        android:maxLength="20"
         app:layout_constraintBottom_toTopOf="@+id/etEmail"
         app:layout_constraintEnd_toEndOf="@+id/etEmail"
         app:layout_constraintStart_toStartOf="@+id/etEmail"
@@ -36,7 +39,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/email"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
+        android:maxLength="20"
         app:layout_constraintBottom_toTopOf="@+id/btnCreateUser"
         app:layout_constraintEnd_toEndOf="@+id/btnCreateUser"
         app:layout_constraintStart_toStartOf="@+id/btnCreateUser"

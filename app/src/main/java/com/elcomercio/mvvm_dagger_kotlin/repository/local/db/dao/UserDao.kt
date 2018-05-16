@@ -9,6 +9,10 @@ import com.elcomercio.mvvm_dagger_kotlin.repository.local.db.entity.UserEntity
  */
 @Dao
 interface UserDao {
+
+    @Query("SELECT * FROM UserEntity")
+    fun getUsers(): LiveData<List<UserEntity>>
+
     @Query("SELECT * FROM UserEntity WHERE id = :userId")
     fun getUser(userId: Int): LiveData<UserEntity>
 

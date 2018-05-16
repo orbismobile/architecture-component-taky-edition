@@ -16,13 +16,13 @@ import retrofit2.http.*
 interface SampleApi {
 
     @GET(BuildConfig.USERS)
-    fun getUsers(): Call<UserGetAllResponse>
+    fun getUsers(): LiveData<ApiResponse<UserGetAllResponse>>
 
     @GET(BuildConfig.USERS_ID)
     fun getUsers(@Path("userId") userId: Int): LiveData<ApiResponse<UserGetResponse>>
 
     @POST(BuildConfig.USERS)
-    fun postUsers(@Body userRequest: UserRequest): Call<UserPostResponse>
+    fun postUsers(@Body userRequest: UserRequest): LiveData<ApiResponse<UserPostResponse>>
 
     @PUT(BuildConfig.USERS_ID)
     fun putUsers(@Path("userId") userId: Int): LiveData<ApiResponse<UserPutResponse>>

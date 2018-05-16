@@ -5,7 +5,6 @@ import android.arch.lifecycle.MediatorLiveData
 import android.support.annotation.MainThread
 import android.support.annotation.NonNull
 import android.support.annotation.WorkerThread
-import android.util.Log
 import com.elcomercio.mvvm_dagger_kotlin.repository.remote.api.ApiResponse
 import com.elcomercio.mvvm_dagger_kotlin.utils.AppExecutors
 import com.elcomercio.mvvm_dagger_kotlin.utils.ERROR_SERVICE_RESPONSE
@@ -16,13 +15,13 @@ import com.elcomercio.mvvm_dagger_kotlin.utils.Resource
  * Because loading data from network while showing it from the disk is a common use case.
  * <div class="special reference">
  * <h3>Developer Guides</h3>
- * <p>For information about how NetworkBoundResource class works, read the official documentation:
+ * <p>For information about how DetailNetworkResource class works, read the official documentation:
  * <a href="https://developer.android.com/topic/libraries/architecture/guide.html#addendum">
  * Addendum: exposing network status.</a>
  * </p>
  * </div>
  * This class fetch the result from network.
- * It's also a simplified version of {@link NetworkBoundResource}
+ * It's also a simplified version of {@link DetailNetworkResource}
  *
  * @param <R> Type for the Resource data
  * @param <T> Type for the API response
@@ -35,7 +34,7 @@ import com.elcomercio.mvvm_dagger_kotlin.utils.Resource
  * @see Resource
  * @since 1.0.5
  */
-abstract class NetworkBoundResource<R, T>(private val appExecutors: AppExecutors) {
+abstract class DetailNetworkResource<R, T>(private val appExecutors: AppExecutors) {
 
     private val result: MediatorLiveData<Resource<R>> = MediatorLiveData()
 

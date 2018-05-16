@@ -3,7 +3,6 @@ package com.elcomercio.mvvm_dagger_kotlin.di.modules
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.elcomercio.mvvm_dagger_kotlin.di.annotations.ViewModelKey
-import com.elcomercio.mvvm_dagger_kotlin.ui.detail.DetailViewModel
 import com.elcomercio.mvvm_dagger_kotlin.ui.user.UserViewModel
 import com.elcomercio.mvvm_dagger_kotlin.viewmodel.SampleViewModelFactory
 import dagger.Binds
@@ -20,11 +19,6 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(UserViewModel::class)
     abstract fun bindUserViewModel(userViewModel: UserViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(UserViewModel::class)
-    abstract fun bindDetailViewModel(detailViewModel: DetailViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(sampleViewModelFactory: SampleViewModelFactory):

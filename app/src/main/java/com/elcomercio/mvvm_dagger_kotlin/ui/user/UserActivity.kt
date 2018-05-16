@@ -3,9 +3,6 @@ package com.elcomercio.mvvm_dagger_kotlin.ui.user
 import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
-import android.support.annotation.StringRes
-import android.support.design.widget.Snackbar
-import android.util.Log
 import com.elcomercio.mvvm_dagger_kotlin.R
 import com.elcomercio.mvvm_dagger_kotlin.repository.local.db.entity.UserEntity
 import com.elcomercio.mvvm_dagger_kotlin.repository.remote.model.request.UserRequest
@@ -50,14 +47,13 @@ class UserActivity : DaggerAppCompatActivity(), UserDialogFragment.OnNewUserDial
             it.adapter = userAdapter
         }
 
-        userViewModel.loadAllUsers()
+        userViewModel.loadAllUsers(true)
 
-        settingUpAllUserObserver()
-        settingUpInsertUserObserver()
+        subscribeToUserModel()
 
         srlRefresh.setOnRefreshListener {
             if (srlRefresh.isRefreshing) srlRefresh.isRefreshing = false
-            userViewModel.loadAllUsers()
+            userViewModel.retryLoadAllUsers()
         }
 
         //Setting up Listeners
@@ -66,50 +62,41 @@ class UserActivity : DaggerAppCompatActivity(), UserDialogFragment.OnNewUserDial
         }
     }
 
-    private fun settingUpAllUserObserver() {
-        userViewModel.getAllUsersLiveData().observe(this, Observer {
-            Log.i("ENTRAAAAA", "ENTRAAA ${it?.status}")
-
+    private fun subscribeToUserModel() {
+        //GET ALL USERS
+        userViewModel.getAllUsersResourceLiveData.observe(this, Observer {
             when (it!!.status) {
                 Status.SUCCESS -> {
                     userAdapter.addAllUsers(it.data!!)
                 }
                 Status.ERROR -> {
-                    showSnackBar(it.message!!)
+                    showToast(it.message!!)
                 }
                 Status.LOADING -> {
-                    showToast("Loading...")
+                    showToast("Loading Users...")
                 }
             }
         })
-    }
 
-    private fun settingUpInsertUserObserver() {
-        userViewModel.getSaveUserOnServerLiveData().observe(this, Observer {
-            Log.i("ENTRAAAAA", "ENTRAAA ${it?.status}")
+        //POST NEW USER
+        userViewModel.postUserResourceLiveData.observe(this, Observer {
             when (it!!.status) {
                 Status.SUCCESS -> {
-                    showToast(it.data!!.message)
+                    userAdapter.addUser(it.data!!)
+                    userDialogFragment.dismiss()
                 }
                 Status.ERROR -> {
-                    showSnackBar(it.message!!)
+                    showToast(it.message!!)
                 }
                 Status.LOADING -> {
-                    showToast("Loading...")
+                    showToast("Saving User...")
                 }
             }
         })
-    }
-
-    private fun showSnackBar(@StringRes errorMessage: String) {
-        Snackbar
-                .make(clGeneral, errorMessage, Snackbar.LENGTH_INDEFINITE)
-                .setAction(R.string.retry, { _ -> userViewModel.retryLoadUser() })
-                .show()
     }
 
     private fun showUserDialogFragment() {
-        userDialogFragment = UserDialogFragment.newInstance("", "", "")
+        userDialogFragment = UserDialogFragment.newInstance()
         userDialogFragment.show(supportFragmentManager, TAG_USER_DIALOG_FRAGMENT)
     }
 

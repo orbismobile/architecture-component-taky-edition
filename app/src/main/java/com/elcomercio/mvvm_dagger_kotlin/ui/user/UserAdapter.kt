@@ -49,8 +49,7 @@ class UserAdapter(private val listUserEntity: MutableList<UserEntity>,
         notifyDataSetChanged()
     }
 
-    fun insertUserItem(userEntity: UserEntity) {
-        listUserEntity.clear()
+    fun addUser(userEntity: UserEntity) {
         listUserEntity.add(userEntity)
         notifyDataSetChanged()
     }
