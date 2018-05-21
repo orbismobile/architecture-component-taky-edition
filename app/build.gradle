@@ -39,6 +39,7 @@ android {
     sourceSets {
         androidTest.java.srcDirs += 'src/test_common/java'
         test.java.srcDirs += 'src/test_common/java'
+        main { assets.srcDirs = ['src/main/assets', 'src/test/resources/'] }
     }
 }
 
