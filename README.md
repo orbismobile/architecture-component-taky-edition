@@ -14,7 +14,7 @@ which are Kotlin, Dagger 2 and Architecture Components.
 Additionally this project uses the Repository Pattern.
 
 <p align="center">
-    <img src="Screenshots/architecturefinal.png" alt="icon" width="50%"/>
+    <img src="Screenshots/architecturefinal.png" alt="icon" width="75%"/>
 </p>
 
 
