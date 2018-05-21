@@ -30,5 +30,5 @@ we'll fetch data from Remote(our Web Service).
 4. Right click on test_common folder > New > Folder > Java Folder > change folder destination > **src/test_common/java**
 
 # How to create a resources folder in test
-1.Right click on src folder.
-2.New > Folder > Assets Folder > change folder destination > **src/test/resources/**
+1. Right click on src folder.
+2. New > Folder > Assets Folder > change folder destination > **src/test/resources/**
