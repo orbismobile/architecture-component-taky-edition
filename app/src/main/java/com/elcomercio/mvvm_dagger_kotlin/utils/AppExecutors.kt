@@ -10,7 +10,7 @@ import android.os.Looper
  * @author Carlos Vargas on 4/20/18.
  */
 @Singleton
-class AppExecutors(val diskIO: Executor, val networkIO: Executor, val mainThread: Executor) {
+open class AppExecutors(val diskIO: Executor, val networkIO: Executor, val mainThread: Executor) {
 
     class MainThreadExecutor : Executor {
         private val mainThreadHandler = Handler(Looper.getMainLooper())

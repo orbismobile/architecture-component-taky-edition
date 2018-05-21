@@ -43,6 +43,9 @@ abstract class NetworkResource<R> {
         fetchFromNetwork()
     }
 
+    /**
+     * Inside this method you can define your own logic.
+     */
     private fun fetchFromNetwork() {
         val apiResponseLiveData = createCall()
         setValue(Resource.loading(null))
@@ -50,7 +53,6 @@ abstract class NetworkResource<R> {
             result.removeSource(apiResponseLiveData)
             if (it != null) {
                 if (it.isSuccessful()) {
-                    Log.e("puchaa", "puchaa ${it.body}")
                     setValue(Resource.success(it.body))
                 } else {
                     setValue(Resource.error(it.errorMessage!!, null))

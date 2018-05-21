@@ -39,4 +39,5 @@ ext {
     daggerVersion = '2.15'
     retrofitVersion = '2.3.0'
     okHttpVersion = '3.9.1'
+    mockitoVersion = '2.7.19'
 }

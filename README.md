@@ -18,3 +18,9 @@ Additionally this project uses the Repository Pattern.
 
 At first, searches a user from local DB and shows on the screen but If if we don't have any user then
 we'll fetch data from Remote(our Web Service).
+
+## How to add new package like test_common inside src folder?
+1. Change to Project View Type.
+2. Right click on src folder.
+3. Go to New > Directory > test_common.
+4. Right click on test_common folder > New > Folder > Java Folder > change folder destination > **src/test_common/java**

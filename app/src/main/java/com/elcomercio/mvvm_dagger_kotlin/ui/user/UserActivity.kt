@@ -47,23 +47,24 @@ class UserActivity : DaggerAppCompatActivity(), UserDialogFragment.OnNewUserDial
             it.adapter = userAdapter
         }
 
+        //Fetch all users at the first time
         userViewModel.loadAllUsers(true)
 
-        subscribeToUserModel()
-
+        //Setting up Listeners
         srlRefresh.setOnRefreshListener {
             if (srlRefresh.isRefreshing) srlRefresh.isRefreshing = false
             userViewModel.retryLoadAllUsers()
         }
 
-        //Setting up Listeners
         fab.setOnClickListener {
             showUserDialogFragment()
         }
+
+        subscribeToUserModel()
     }
 
     private fun subscribeToUserModel() {
-        //GET ALL USERS
+        //OBSERVER GET ALL USERS
         userViewModel.getAllUsersResourceLiveData.observe(this, Observer {
             when (it!!.status) {
                 Status.SUCCESS -> {
@@ -78,7 +79,7 @@ class UserActivity : DaggerAppCompatActivity(), UserDialogFragment.OnNewUserDial
             }
         })
 
-        //POST NEW USER
+        //OBSERVER POST NEW USER
         userViewModel.postUserResourceLiveData.observe(this, Observer {
             when (it!!.status) {
                 Status.SUCCESS -> {
@@ -95,11 +96,17 @@ class UserActivity : DaggerAppCompatActivity(), UserDialogFragment.OnNewUserDial
         })
     }
 
+    /**
+     * Show User Dialog Fragment.
+     */
     private fun showUserDialogFragment() {
         userDialogFragment = UserDialogFragment.newInstance()
         userDialogFragment.show(supportFragmentManager, TAG_USER_DIALOG_FRAGMENT)
     }
 
+    /**
+     * Listener when user click Create New User button.
+     */
     override fun onCreateClickListener(userRequest: UserRequest) {
         userViewModel.saveUserOnFromServer(userRequest)
     }

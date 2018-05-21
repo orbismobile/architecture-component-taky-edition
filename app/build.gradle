@@ -35,6 +35,12 @@ android {
             buildConfigField "String", "USERS_ID", "\"users/{userId}\""
         }
     }
+
+    sourceSets {
+        androidTest.java.srcDirs += 'src/test_common/java'
+        test.java.srcDirs += 'src/test_common/java'
+        main { res.srcDirs = ['src/main/res', 'src/test/resources'] }
+    }
 }
 
 dependencies {
@@ -75,4 +81,10 @@ dependencies {
 
     //Espresso UI Testing
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+
+    // For local unit tests on your development machine
+    testCompile "org.mockito:mockito-core:$mockitoVersion"
+
+    // For instrumentation tests on Android devices and emulators
+    androidTestCompile "org.mockito:mockito-android:$mockitoVersion"
 }

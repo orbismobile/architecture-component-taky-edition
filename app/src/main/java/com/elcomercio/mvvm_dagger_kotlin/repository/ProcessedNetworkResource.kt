@@ -47,7 +47,6 @@ abstract class ProcessedNetworkResource<R, C> {
     }
 
     private fun fetchFromNetwork() {
-        Log.e("error","erorrrrrr")
         val apiResponseLiveData = createCall()
         setValue(Resource.loading(null))
         result.addSource(apiResponseLiveData) {

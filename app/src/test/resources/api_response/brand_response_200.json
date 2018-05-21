@@ -1,0 +1,660 @@
+{
+  "opciones": [
+    {
+      "IdMarca": 840,
+      "NombreMarca": "ACURA"
+    },
+    {
+      "IdMarca": 536,
+      "NombreMarca": "ALFA-ROMEO"
+    },
+    {
+      "IdMarca": 783,
+      "NombreMarca": "AMC"
+    },
+    {
+      "IdMarca": 545,
+      "NombreMarca": "ARO"
+    },
+    {
+      "IdMarca": 535,
+      "NombreMarca": "ASIA"
+    },
+    {
+      "IdMarca": 1030,
+      "NombreMarca": "ASTON MARTIN"
+    },
+    {
+      "IdMarca": 21,
+      "NombreMarca": "AUDI"
+    },
+    {
+      "IdMarca": 22,
+      "NombreMarca": "AUSTIN"
+    },
+    {
+      "IdMarca": 880,
+      "NombreMarca": "AUTOCRAFT"
+    },
+    {
+      "IdMarca": 1026,
+      "NombreMarca": "BAIC"
+    },
+    {
+      "IdMarca": 1009,
+      "NombreMarca": "BAIC YINXIANG"
+    },
+    {
+      "IdMarca": 837,
+      "NombreMarca": "BAW"
+    },
+    {
+      "IdMarca": 36,
+      "NombreMarca": "BMW"
+    },
+    {
+      "IdMarca": 877,
+      "NombreMarca": "BRILLIANCE"
+    },
+    {
+      "IdMarca": 922,
+      "NombreMarca": "BUGGY"
+    },
+    {
+      "IdMarca": 41,
+      "NombreMarca": "BUICK"
+    },
+    {
+      "IdMarca": 848,
+      "NombreMarca": "BYD"
+    },
+    {
+      "IdMarca": 48,
+      "NombreMarca": "CADILLAC"
+    },
+    {
+      "IdMarca": 798,
+      "NombreMarca": "CAKY"
+    },
+    {
+      "IdMarca": 1040,
+      "NombreMarca": "CERTIFICADO"
+    },
+    {
+      "IdMarca": 903,
+      "NombreMarca": "CHANA"
+    },
+    {
+      "IdMarca": 853,
+      "NombreMarca": "CHANGAN"
+    },
+    {
+      "IdMarca": 914,
+      "NombreMarca": "CHANGFENG"
+    },
+    {
+      "IdMarca": 907,
+      "NombreMarca": "CHANGHE"
+    },
+    {
+      "IdMarca": 787,
+      "NombreMarca": "CHERY"
+    },
+    {
+      "IdMarca": 66,
+      "NombreMarca": "CHEVROLET"
+    },
+    {
+      "IdMarca": 69,
+      "NombreMarca": "CHRYSLER"
+    },
+    {
+      "IdMarca": 940,
+      "NombreMarca": "CHUKY"
+    },
+    {
+      "IdMarca": 72,
+      "NombreMarca": "CITROEN"
+    },
+    {
+      "IdMarca": 937,
+      "NombreMarca": "CLUBCAR"
+    },
+    {
+      "IdMarca": 978,
+      "NombreMarca": "CNJ"
+    },
+    {
+      "IdMarca": 90,
+      "NombreMarca": "DACIA"
+    },
+    {
+      "IdMarca": 92,
+      "NombreMarca": "DAEWOO"
+    },
+    {
+      "IdMarca": 94,
+      "NombreMarca": "DAIHATSU"
+    },
+    {
+      "IdMarca": 95,
+      "NombreMarca": "DATSUN"
+    },
+    {
+      "IdMarca": 1023,
+      "NombreMarca": "DFSK"
+    },
+    {
+      "IdMarca": 974,
+      "NombreMarca": "DIM"
+    },
+    {
+      "IdMarca": 101,
+      "NombreMarca": "DODGE"
+    },
+    {
+      "IdMarca": 103,
+      "NombreMarca": "DONGFENG"
+    },
+    {
+      "IdMarca": 106,
+      "NombreMarca": "EAGLE"
+    },
+    {
+      "IdMarca": 962,
+      "NombreMarca": "EMGRAND"
+    },
+    {
+      "IdMarca": 598,
+      "NombreMarca": "FAW"
+    },
+    {
+      "IdMarca": 130,
+      "NombreMarca": "FERRARI"
+    },
+    {
+      "IdMarca": 133,
+      "NombreMarca": "FIAT"
+    },
+    {
+      "IdMarca": 137,
+      "NombreMarca": "FORD"
+    },
+    {
+      "IdMarca": 764,
+      "NombreMarca": "FOTON"
+    },
+    {
+      "IdMarca": 737,
+      "NombreMarca": "GEELY"
+    },
+    {
+      "IdMarca": 150,
+      "NombreMarca": "GEO"
+    },
+    {
+      "IdMarca": 152,
+      "NombreMarca": "GMC"
+    },
+    {
+      "IdMarca": 963,
+      "NombreMarca": "GOLDEN DRAGON"
+    },
+    {
+      "IdMarca": 706,
+      "NombreMarca": "GONOW"
+    },
+    {
+      "IdMarca": 741,
+      "NombreMarca": "GREAT WALL"
+    },
+    {
+      "IdMarca": 717,
+      "NombreMarca": "GURGEL"
+    },
+    {
+      "IdMarca": 654,
+      "NombreMarca": "HAFEI"
+    },
+    {
+      "IdMarca": 898,
+      "NombreMarca": "HAIMA"
+    },
+    {
+      "IdMarca": 166,
+      "NombreMarca": "HARLEY DAVIDSON"
+    },
+    {
+      "IdMarca": 1033,
+      "NombreMarca": "HAVAL"
+    },
+    {
+      "IdMarca": 175,
+      "NombreMarca": "HILLMAN"
+    },
+    {
+      "IdMarca": 177,
+      "NombreMarca": "HINO"
+    },
+    {
+      "IdMarca": 181,
+      "NombreMarca": "HONDA"
+    },
+    {
+      "IdMarca": 183,
+      "NombreMarca": "HUANG HAI"
+    },
+    {
+      "IdMarca": 1010,
+      "NombreMarca": "HUDSON"
+    },
+    {
+      "IdMarca": 185,
+      "NombreMarca": "HUMMER"
+    },
+    {
+      "IdMarca": 189,
+      "NombreMarca": "HYUNDAI"
+    },
+    {
+      "IdMarca": 1035,
+      "NombreMarca": "INCA POWER GONOW"
+    },
+    {
+      "IdMarca": 1018,
+      "NombreMarca": "INCAPOWER"
+    },
+    {
+      "IdMarca": 868,
+      "NombreMarca": "INFINITI"
+    },
+    {
+      "IdMarca": 561,
+      "NombreMarca": "INTERNATIONAL"
+    },
+    {
+      "IdMarca": 211,
+      "NombreMarca": "ISUZU"
+    },
+    {
+      "IdMarca": 809,
+      "NombreMarca": "JAC"
+    },
+    {
+      "IdMarca": 213,
+      "NombreMarca": "JAGUAR"
+    },
+    {
+      "IdMarca": 218,
+      "NombreMarca": "JEEP"
+    },
+    {
+      "IdMarca": 734,
+      "NombreMarca": "JINBEI"
+    },
+    {
+      "IdMarca": 756,
+      "NombreMarca": "JINCHENG"
+    },
+    {
+      "IdMarca": 842,
+      "NombreMarca": "JMC"
+    },
+    {
+      "IdMarca": 972,
+      "NombreMarca": "JONWAY"
+    },
+    {
+      "IdMarca": 926,
+      "NombreMarca": "JOYLONG"
+    },
+    {
+      "IdMarca": 942,
+      "NombreMarca": "JOYNER"
+    },
+    {
+      "IdMarca": 973,
+      "NombreMarca": "KAMA"
+    },
+    {
+      "IdMarca": 240,
+      "NombreMarca": "KIA"
+    },
+    {
+      "IdMarca": 989,
+      "NombreMarca": "KING LONG"
+    },
+    {
+      "IdMarca": 575,
+      "NombreMarca": "KTM"
+    },
+    {
+      "IdMarca": 247,
+      "NombreMarca": "LADA"
+    },
+    {
+      "IdMarca": 765,
+      "NombreMarca": "LAMBORGHINI"
+    },
+    {
+      "IdMarca": 249,
+      "NombreMarca": "LANCIA"
+    },
+    {
+      "IdMarca": 250,
+      "NombreMarca": "LAND ROVER"
+    },
+    {
+      "IdMarca": 956,
+      "NombreMarca": "LANDWIND"
+    },
+    {
+      "IdMarca": 254,
+      "NombreMarca": "LEXUS"
+    },
+    {
+      "IdMarca": 931,
+      "NombreMarca": "LIEBAO"
+    },
+    {
+      "IdMarca": 649,
+      "NombreMarca": "LIFAN"
+    },
+    {
+      "IdMarca": 713,
+      "NombreMarca": "LIMOUSINE"
+    },
+    {
+      "IdMarca": 256,
+      "NombreMarca": "LINCOLN"
+    },
+    {
+      "IdMarca": 766,
+      "NombreMarca": "LOTUS"
+    },
+    {
+      "IdMarca": 690,
+      "NombreMarca": "MAHINDRA"
+    },
+    {
+      "IdMarca": 902,
+      "NombreMarca": "MASERATI"
+    },
+    {
+      "IdMarca": 1031,
+      "NombreMarca": "MAXUS"
+    },
+    {
+      "IdMarca": 279,
+      "NombreMarca": "MAZDA"
+    },
+    {
+      "IdMarca": 1055,
+      "NombreMarca": "MC LAREN"
+    },
+    {
+      "IdMarca": 281,
+      "NombreMarca": "MERCEDES BENZ"
+    },
+    {
+      "IdMarca": 282,
+      "NombreMarca": "MERCURY"
+    },
+    {
+      "IdMarca": 284,
+      "NombreMarca": "MG"
+    },
+    {
+      "IdMarca": 674,
+      "NombreMarca": "MINI"
+    },
+    {
+      "IdMarca": 287,
+      "NombreMarca": "MITSUBISHI"
+    },
+    {
+      "IdMarca": 296,
+      "NombreMarca": "MORRIS"
+    },
+    {
+      "IdMarca": 928,
+      "NombreMarca": "MORRIS GARAGES"
+    },
+    {
+      "IdMarca": 309,
+      "NombreMarca": "NISSAN"
+    },
+    {
+      "IdMarca": 668,
+      "NombreMarca": "NSU"
+    },
+    {
+      "IdMarca": 311,
+      "NombreMarca": "OLDSMOBILE"
+    },
+    {
+      "IdMarca": 314,
+      "NombreMarca": "OPEL"
+    },
+    {
+      "IdMarca": 884,
+      "NombreMarca": "OTROS"
+    },
+    {
+      "IdMarca": 324,
+      "NombreMarca": "PEUGEOT"
+    },
+    {
+      "IdMarca": 327,
+      "NombreMarca": "PLYMOUTH"
+    },
+    {
+      "IdMarca": 623,
+      "NombreMarca": "POLARIS"
+    },
+    {
+      "IdMarca": 909,
+      "NombreMarca": "POLARSUN"
+    },
+    {
+      "IdMarca": 329,
+      "NombreMarca": "PONTIAC"
+    },
+    {
+      "IdMarca": 330,
+      "NombreMarca": "PORSCHE"
+    },
+    {
+      "IdMarca": 812,
+      "NombreMarca": "PROTON"
+    },
+    {
+      "IdMarca": 1004,
+      "NombreMarca": "PUMA TAT"
+    },
+    {
+      "IdMarca": 992,
+      "NombreMarca": "RAM"
+    },
+    {
+      "IdMarca": 336,
+      "NombreMarca": "RAMBLER"
+    },
+    {
+      "IdMarca": 343,
+      "NombreMarca": "RENAULT"
+    },
+    {
+      "IdMarca": 832,
+      "NombreMarca": "REO"
+    },
+    {
+      "IdMarca": 943,
+      "NombreMarca": "RICH"
+    },
+    {
+      "IdMarca": 347,
+      "NombreMarca": "RMC"
+    },
+    {
+      "IdMarca": 581,
+      "NombreMarca": "ROLLS ROYCE"
+    },
+    {
+      "IdMarca": 1037,
+      "NombreMarca": "ROUSH"
+    },
+    {
+      "IdMarca": 353,
+      "NombreMarca": "ROVER"
+    },
+    {
+      "IdMarca": 358,
+      "NombreMarca": "SAAB"
+    },
+    {
+      "IdMarca": 1013,
+      "NombreMarca": "SAIC"
+    },
+    {
+      "IdMarca": 359,
+      "NombreMarca": "SAMSUNG"
+    },
+    {
+      "IdMarca": 366,
+      "NombreMarca": "SATURN"
+    },
+    {
+      "IdMarca": 869,
+      "NombreMarca": "SCION"
+    },
+    {
+      "IdMarca": 532,
+      "NombreMarca": "SEAT"
+    },
+    {
+      "IdMarca": 873,
+      "NombreMarca": "SEUNG HWA"
+    },
+    {
+      "IdMarca": 901,
+      "NombreMarca": "SHACMAN"
+    },
+    {
+      "IdMarca": 670,
+      "NombreMarca": "SHINERAY"
+    },
+    {
+      "IdMarca": 933,
+      "NombreMarca": "SIMCA"
+    },
+    {
+      "IdMarca": 970,
+      "NombreMarca": "SKODA"
+    },
+    {
+      "IdMarca": 862,
+      "NombreMarca": "SMA"
+    },
+    {
+      "IdMarca": 767,
+      "NombreMarca": "SMART"
+    },
+    {
+      "IdMarca": 908,
+      "NombreMarca": "SOUEAST"
+    },
+    {
+      "IdMarca": 720,
+      "NombreMarca": "SSANGYONG"
+    },
+    {
+      "IdMarca": 638,
+      "NombreMarca": "STUDEBAKER"
+    },
+    {
+      "IdMarca": 386,
+      "NombreMarca": "SUBARU"
+    },
+    {
+      "IdMarca": 387,
+      "NombreMarca": "SUZUKI"
+    },
+    {
+      "IdMarca": 608,
+      "NombreMarca": "TATA"
+    },
+    {
+      "IdMarca": 969,
+      "NombreMarca": "TERRAMOTO"
+    },
+    {
+      "IdMarca": 1049,
+      "NombreMarca": "TESLA"
+    },
+    {
+      "IdMarca": 699,
+      "NombreMarca": "TIANMA"
+    },
+    {
+      "IdMarca": 403,
+      "NombreMarca": "TOYOTA"
+    },
+    {
+      "IdMarca": 413,
+      "NombreMarca": "TRIUMPH"
+    },
+    {
+      "IdMarca": 579,
+      "NombreMarca": "TUBULAR"
+    },
+    {
+      "IdMarca": 426,
+      "NombreMarca": "VAUXHALL"
+    },
+    {
+      "IdMarca": 433,
+      "NombreMarca": "VOLKSWAGEN"
+    },
+    {
+      "IdMarca": 434,
+      "NombreMarca": "VOLVO"
+    },
+    {
+      "IdMarca": 1015,
+      "NombreMarca": "WARRIOR"
+    },
+    {
+      "IdMarca": 442,
+      "NombreMarca": "WILLYS"
+    },
+    {
+      "IdMarca": 865,
+      "NombreMarca": "XINKAI"
+    },
+    {
+      "IdMarca": 1019,
+      "NombreMarca": "YEMA AUTO"
+    },
+    {
+      "IdMarca": 448,
+      "NombreMarca": "YUGO"
+    },
+    {
+      "IdMarca": 878,
+      "NombreMarca": "ZHONGXING"
+    },
+    {
+      "IdMarca": 979,
+      "NombreMarca": "ZNA"
+    },
+    {
+      "IdMarca": 792,
+      "NombreMarca": "ZOTYE"
+    },
+    {
+      "IdMarca": 899,
+      "NombreMarca": "ZXAUTO"
+    }
+  ]
+}
