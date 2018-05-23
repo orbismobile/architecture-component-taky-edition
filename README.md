@@ -17,8 +17,11 @@ Additionally this project uses the Repository Pattern.
     <img src="Screenshots/architecturefinal.png" alt="icon" width="75%"/>
 </p>
 
+## PREREQUISITIES
+1. Download the web service project from https://github.com/CarlitosDroid/docker-mysql-nodejs
+2. Run the project with `docker-compose up` command from terminal
 
-## How Does it work?
+## How Does the project works?
 
 At first, searches a user from local DB and shows on the screen but If if we don't have any user then
 we'll fetch data from Remote(our Web Service).

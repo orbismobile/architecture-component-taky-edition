@@ -29,7 +29,7 @@ task clean(type: Delete) {
 
 // Define versions in a single place
 ext {
-    ipAdress = '192.168.1.35'
+    ipAdress = '192.168.8.102'
     port = 8123
     supportLibraryVersion = '27.1.1'
     espressoVersion = '3.0.2'
