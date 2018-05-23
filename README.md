@@ -20,6 +20,16 @@ Additionally this project uses the Repository Pattern.
 ## PREREQUISITIES
 1. Download the web service project from https://github.com/CarlitosDroid/docker-mysql-nodejs
 2. Run the project with `docker-compose up` command from terminal
+3. Run `ifconfig | grep 192. command from terminal and copy the ip address
+4. Go to build.gradle file at top level and paste it there:
+
+```gradle
+ext {
+    ipAdress = '192.168.8.102'
+    port = 8123
+    ...
+}
+```
 
 ## How Does the project works?
 
